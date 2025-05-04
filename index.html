@@ -4,137 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://accounts.google.com/gsi/client https://cdn.jsdelivr.net; connect-src 'self' https://accounts.google.com/gsi/; frame-src https://accounts.google.com/gsi/;">
     <title>Finite Automata Simulator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <header class="bg-primary text-white text-center py-3">
+    <header class="bg-primary text-white py-3 d-flex align-items-center justify-content-center">
+        <img src="css/js/assets/images/automates_logo.jpg" alt="AutoMates Logo" class="logo me-3" style="max-width: 150px;">
         <h1>Finite Automata Simulator</h1>
-        <p>A collection of tools for exploring Finite Automata concepts</p>
     </header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="dfa-simulator.html">DFA Simulator</a></li>
-                <li class="nav-item"><a class="nav-link" href="nfa-to-dfa.html">NFA to DFA</a></li>
-                <li class="nav-item"><a class="nav-link" href="dfa-minimization.html">DFA Minimization</a></li>
-                <li class="nav-item"><a class="nav-link" href="regex-to-dfa.html">Regex to DFA/NFA</a></li>
-                <li class="nav-item"><a class="nav-link" href="palindrome.html">Palindrome Detection</a></li>
-                <li class="nav-item"><a class="nav-link" href="token-recognition.html">Token Recognition</a></li>
-                <li class="nav-item"><a class="nav-link" href="probabilistic-fa.html">Probabilistic FA</a></li>
-                <li class="nav-item"><a class="nav-link" href="string-match.html">String Matching</a></li>
-                <li class="nav-item"><a class="nav-link" href="grammar-simplification.html">Grammar Simplication</a></li>
-                <li class="nav-item"><a class="nav-link" href="multi-state-dfa.html">Multi-State DFA</a></li>
-                <li class="nav-item"><a class="nav-link" href="cfg-to-normalform.html">CFG to Normal Form(CNF,GNF)</a></li>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index-tools.html">Tools</a></li>
+                <li class="nav-item"><a class="nav-link" href="index-about-us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="index-contact-us.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container my-4">
-        <h2>Explore Finite Automata Tools</h2>
-        <p>This project provides interactive tools to learn and experiment with Finite Automata concepts, from basic DFA simulation to advanced string matching and visualization.</p>
-        <div class="row">
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">DFA Simulator for Language Recognition</h5>
-                        <p class="card-text">Simulate a DFA and test if strings belong to the language.</p>
-                        <a href="dfa-simulator.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
+        <section class="text-center">
+            <h2>Welcome to AutoMates</h2>
+            <p>Explore the world of finite automata with our interactive simulator.</p>
+            <div id="g_id_onload" data-client_id="795460057847-2m250b3vr20asit2o08ej2ttqeisesnt.apps.googleusercontent.com" data-callback="handleCredentialResponse" data-auto_prompt="false">
             </div>
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">NFA to DFA Conversion Tool</h5>
-                        <p class="card-text">Convert an NFA to a DFA with step-by-step visualization.</p>
-                        <a href="nfa-to-dfa.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+            <div id="user-info" class="mt-3 d-none">
+                <h4>Welcome, <span id="user-name"></span>!</h4>
+                <p>Email: <span id="user-email"></span></p>
+                <button id="signout-button" class="btn btn-secondary" onclick="signOut()">Sign Out</button>
             </div>
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">DFA Minimization Visualizer</h5>
-                        <p class="card-text">Minimize a DFA and visualize the process.</p>
-                        <a href="dfa-minimization.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Regular Expression to DFA/NFA Converter</h5>
-                        <p class="card-text">Convert a regex to a DFA or NFA and test strings.</p>
-                        <a href="regex-to-dfa.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Finite Automata for Palindrome Detection</h5>
-                        <p class="card-text">Detect palindromes using a DFA.</p>
-                        <a href="palindrome.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Automata for Token Recognition</h5>
-                        <p class="card-text">Use FA for lexical analysis token recognition.</p>
-                        <a href="token-recognition.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">DFA-based String-Matching Algorithm Simulator</h5>
-                        <p class="card-text">Simulate string matching with a DFA.</p>
-                        <a href="string-match.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Language Recognizer for Balanced Brackets</h5>
-                        <p class="card-text">Recognize balanced brackets using FA.</p>
-                        <a href="grammar-simplification.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Multi-State DFA Simulation with Visualization</h5>
-                        <p class="card-text">Simulate a complex DFA with visualization.</p>
-                        <a href="multi-state-dfa.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 tool-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">CFG to Normal form (CNF,GNF)</h5>
-                        <p class="card-text">Convert a context free grammar to normal form like CNF/GNF.</p>
-                        <a href="cfg-to-normalform.html" class="btn btn-primary">Try It</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
+
+        <blockquote class="blockquote text-center mt-4">
+            <p>"Automata theory is the foundation of computational logic."</p>
+            <footer class="blockquote-footer">AutoMates Team</footer>
+        </blockquote>
     </main>
 
     <footer class="bg-light text-center py-3">
         <p>Created for Theory of Computation Project</p>
     </footer>
 
+    <!-- Load Bootstrap and other scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Load JWT decode library -->
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <!-- Load Google Identity Services library after callback definition -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        // Explicitly attach the callback to the window object to ensure global access
+        window.handleCredentialResponse = function(response) {
+            if (!response.credential) {
+                console.error('Sign-in failed: No credential received');
+                alert('Sign-in failed. Please try again.');
+                return;
+            }
+            console.log('Sign-in successful, processing credential...');
+            const data = jwt_decode(response.credential);
+            console.log('User data:', data);
+            document.getElementById('user-name').textContent = data.name;
+            document.getElementById('user-email').textContent = data.email;
+            document.getElementById('user-info').classList.remove('d-none');
+            document.querySelector('.g_id_signin').style.display = 'none';
+        };
+
+        // Sign out function
+        window.signOut = function() {
+            if (typeof google !== 'undefined' && google.accounts && google.accounts.id) {
+                google.accounts.id.disableAutoSelect();
+            }
+            document.getElementById('user-info').classList.add('d-none');
+            document.querySelector('.g_id_signin').style.display = 'block';
+            document.getElementById('user-name').textContent = '';
+            document.getElementById('user-email').textContent = '';
+        };
+    </script>
 </body>
 
 </html>
